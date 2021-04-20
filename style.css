@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&family=Poppins:wght@200;300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*,*::before,*::after {
+    box-sizing: border-box;
+}
+
+.navbar {
+    height: 70px;
+    background: rgba(22, 4, 126, 0.4);
+    box-shadow: 1px 6px 18px 0 rgb(0 0 0 / 70%)
+}
+
+.navbar .main-ul {
+    display: flex;
+    position: absolute;
+    right: 40px;
+    top: 25px;
+}
+
+.navbar .main-ul li {
+    list-style: none;
+    margin-right: 30px;
+}
+
+.navbar .main-ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: larger;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 1px 2px 10px black;
+}
+
+.navbar .main-ul li a:hover {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.fa-caret-down {
+    padding: 0 5px;
+    transform: rotateZ(-90deg);
+}
+
+.logo {
+    position: absolute;
+    left: 90px;
+    top: 5px;
+    font-size: 45px;
+    font-family: 'Kiwi Maru', serif;
+    text-shadow: 3px 3px 5px black;
+}
+
+.dropdown-ul {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-top: 20px;
+    padding-bottom: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: absolute;
+    top: 25px;
+    border-radius: 8px;
+    opacity: 0;
+    transition: all 0.4s linear;
+    transform: translateY(-150px);
+}
+
+.fa-caret-down {
+    color: white;
+}
+
+.dropdown-ul li {
+    margin-top: 10px;
+}
+
+.main-ul .dropdown-link:hover > .dropdown-ul {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.main-ul .dropdown-link:hover > #dropdown {
+    color: black;
+}
+
+.main-ul .dropdown-link:hover > #dropdown-icon {
+    transform: rotateZ(0deg);
+    color: black;
+}
+
+.search {
+    position: absolute;
+    top: 28px;
+    right: 25px;
+    text-align: right;
+}
+
+.search .fa-search {
+    font-size: large;
+    color: black;
+}
+
+.search input[type="text"] {
+    padding: 10px 12px;
+    border: 1px solid black;
+    border-radius: 12px;
+    outline: 0;
+}
+
+.search-box {
+    display: none;
+    transition: 5s linear;
+}
+
+.search button {
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 6px;
+    outline: none;
+}
+
+.search button:hover {
+    background-color: black;
+    color: white;
+}
+
+.search:hover > .search-box {
+    display: block;
+}
+
+#toggle {
+    width: 50px;
+    height: 50px;
+    background-color: #3487;
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    display: none;
+}
+
+#toggle::before {
+    content: '';
+    width: 30px;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    transform: translate(10px,20px);
+    transition: all 0.1s linear;
+}
+
+#toggle::after {
+    content: '';
+    width: 30px;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    transform: translate(10px,30px);
+    transition: all 0.1s linear;
+}
+
+#toggle.active::before {
+    transform: translate(10px,25px) rotate(45deg);
+}
+
+#toggle.active::after {
+    transform: translate(10px,25px) rotate(-45deg);
+}
+
+#toggle:active {
+    background-color: black;
+}
+
+.search-bar-responsive {
+    display: none;
+}
+
+@media only screen and (max-width: 1220px){
+
+    .logo {
+        position: absolute;
+        left: 20px;
+        font-size: 35px;
+        text-shadow: 0px 0px 10px 0 black;
+        top: 10px;
+    }
+
+    .navbar .main-ul {
+        display: flex;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        flex-direction: column;
+        width: 100%;
+        transform: scaleY(0);
+        transition: transform 0.2s linear;
+        transform-origin: top;
+    }
+
+    .navbar .main-ul li {
+        list-style: none;
+        padding: 15px 20px;
+        width: 100%;
+        background-color: darkblue;
+    }
+
+    .dropdown-ul {
+        display: none;
+    }
+
+    .navbar .main-ul.active {
+        transform: scaleY(1);
+    }
+
+    .search-bar-responsive {
+        display: flex;
+    }
+
+    .search-responsive {
+        display: block;
+        width: 70%;
+        height: 40px;
+        border: 2px solid grey;
+        border-radius: 5px;
+        padding-left: 10px;
+        font-size: larger;
+    }
+
+    .btn-responsive {
+        display: block;
+        margin-left: 20px;
+        padding: 10px 20px;
+    }
+    
+    #toggle {
+        display: block;
+    }
+}
